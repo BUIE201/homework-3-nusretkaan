@@ -109,7 +109,8 @@ void Summation(Node*& pRoot,int sum, vector<int> path, map<vector<int>, int > & 
 	}
 	
 }
-void Sorting(map<vector<int>, int > Distance) {
+void FindLargestPath(Node*& pRoot, int sum, vector<int> path,map<vector<int>, int > Distance) {
+	Summation(pRoot, sum, path, Distance);
 	auto itbiggest = Distance.begin();         // itbiggest equals first object of map in the firstç
 	for (auto it = Distance.begin(); it != Distance.end(); it++) {
 		if (it->second > itbiggest->second) {     //if "it"'s second is bigger than itbiggest second then we assign it to itbiggest.
@@ -144,6 +145,5 @@ void main()
 	vector<int> path;
 	map<vector<int>, int > Distance;
 	PrintTree(pRoot, 1);
-	Summation(pRoot, sum,path,Distance);
-	Sorting(Distance);
+	FindLargestPath(pRoot,sum,path,Distance);
 }
